@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <div style="text-align:center">
+        <title>Questao 1</title>
+        <h1>Recrutamento interno - Questão 1</h1>
+        <script src="run.js"></script>
+        <script>
+
+            function alerta(){
+                let initialHour = '08:00';
+                let endHour = '20:00';
+                let saturdayEndHour = '18:00';
+                let workDays = '[1,2,3,4,5]';
+                let x = run(initialHour,endHour,saturdayEndHour,workDays);
+
+                alert('Status: ' + x.status + '\nHora: '+ x.hora +'\n');
+            }
+
+
+            function mostraDia() {
+                // ---------------------------------------------------------------------------- //
+                // Este trecho de código tem partes repetidas pois quis deixar a função acima o mais independente possível. 
+                // ---------------------------------------------------------------------------- //
+                let data = new Date();
+                let dias = new Array(
+                    'domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'
+                );
+
+                let horaAtual = data.getHours();          // 0-23
+                let minAtual = data.getMinutes();        // 0-59
+                let segAtual = data.getSeconds();        // 0-59
+
+                let ano4 = data.getFullYear();       // 4 dígitos
+                let mes = data.getMonth();          // 0-11 (zero=janeiro)
+                let dia = data.getDate();           // 1-31
+
+                let str_hora = horaAtual + ':' + minAtual + ':' + segAtual;
+                let str_data = dia + '/' + (mes + 1) + '/' + ano4;
+                // ---------------------------------------------------------------------------- //
+                // ---------------------------------------------------------------------------- //
+
+                alert('Hoje e ' + dias[data.getDay()] + ', ' + str_data + ' as ' + str_hora);
+
+            }
+
+            function mostraQuestao() {
+                alert('Questão 01: Uma empresa trabalha com Chatbots e precisa restringir o acesso de algumas ' +
+                    ' funcionalidades com base no horário que o cliente está utilizando. Dito isso, crie uma função em ' +
+                    ' javascript, que tenha 4 parâmetros de entrada (não pode ser adicionado mais, ou alterado os' +
+                    ' seguintes), horário inicial (formatado em HH:mm), horário final (formatado em HH:mm), horário' +
+                    ' sábado (formatado em HH:mm) e os dias em que há operação (formatado em números separados' +
+                    ' por virgulas, 1,2,3,4).\n' +
+                    'Lembrando que a empresa possui o horário de funcionamento de segunda a sexta das 08:00 – 20:00' +
+                    ' e nos sábados. Das 08:00 – 18:00 e que o retorno da função deve ser um objeto com dois' +
+                    ' parâmetros, o horário e o status booleano se deve ser mostrado ou não o restante dos menus.' +
+                    ' \nComo resposta, você deverá entregar um arquivo .js com a solução.' +
+                    ' \nEsquema (não alterar o esquema, somente adicionar o seu código): ');
+
+
+            }
+        </script>
+        <h2>
+            <input type="button" onclick="mostraQuestao()" value="A questao" />
+        </h2>
+    </div>
+
+    <style>
+        body {
+            background-image: url('https://logodownload.org/wp-content/uploads/2016/09/Intelbras-logo-1.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>
+        <div style="text-align:center">
+            <input type="button" onclick="mostraDia()" value="Informacoes de agora!" />
+            <input type="button" onclick="alerta()"
+                value="Estamos em funcionamento?" />
+        </div>
+    </h3>
+
+</body>
+
+</html>
